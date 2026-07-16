@@ -1,0 +1,411 @@
+.advice-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+
+.advice-item:first-of-type {
+  border-top: 0;
+}
+
+.advice-item h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.advice-item p {
+  margin: 0;
+  color: #475467;
+}
+
+.growth-state-report {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.growth-stage-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f4f9ff, #eef6ff);
+  color: #475467;
+}
+
+.growth-stage-line strong {
+  color: #0066cc;
+  font-size: 20px;
+}
+
+.growth-state-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.growth-state-card,
+.growth-summary {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.growth-state-card h3,
+.growth-summary h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.growth-state-card p,
+.growth-summary p {
+  margin: 8px 0;
+  color: #475467;
+}
+
+.growth-state-card.strengths p {
+  color: #287a45;
+}
+
+.growth-state-card.weaknesses p {
+  color: #9a6700;
+}
+
+.priority-capabilities {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.priority-capabilities-heading h3 {
+  margin: 12px 0 18px;
+  font-size: 24px;
+  letter-spacing: -.02em;
+}
+
+.priority-capability-list {
+  display: grid;
+  gap: 10px;
+}
+
+.priority-capability-row {
+  display: grid;
+  grid-template-columns: 44px minmax(120px, .8fr) 90px minmax(220px, 2fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.priority-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef6ff;
+  color: #0066cc;
+}
+
+.priority-capability-row > div {
+  display: grid;
+  gap: 4px;
+}
+
+.priority-capability-row p {
+  margin: 0;
+  color: #667085;
+}
+
+.priority-label {
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.growth-phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.growth-phase-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, .05);
+}
+
+.growth-phase-label {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #0066cc;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.growth-phase-card h3 {
+  margin: 0 0 14px;
+  font-size: 21px;
+  letter-spacing: -.02em;
+}
+
+.growth-phase-actions p {
+  margin: 9px 0;
+  color: #475467;
+}
+
+.report-cta-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: min(560px, 100%);
+  margin: 18px auto 8px;
+  text-align: left;
+}
+
+.report-cta-benefits span {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #344054;
+}
+
+.report-service-center {
+  margin-top: 20px;
+  padding: clamp(24px, 5vw, 38px);
+  background: linear-gradient(145deg, #f4f9ff, #fff 42%);
+}
+
+.service-center-heading {
+  max-width: 720px;
+}
+
+.service-center-heading h2 {
+  margin: 16px 0 10px;
+  font-size: clamp(30px, 4vw, 42px);
+  letter-spacing: -.04em;
+}
+
+.service-center-heading p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.service-recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.service-recommendation-grid article {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, .05);
+}
+
+.service-recommendation-grid article.recommended {
+  border-color: rgba(0, 113, 227, .28);
+  box-shadow: 0 18px 40px rgba(0, 113, 227, .11);
+}
+
+.service-card-heading > span {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #0066cc;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.service-card-heading h3 {
+  margin: 14px 0 7px;
+  font-size: 23px;
+  letter-spacing: -.025em;
+}
+
+.service-card-heading p,
+.service-ai-reason p,
+.service-solution p {
+  margin: 0;
+  color: #667085;
+}
+
+.service-ai-reason,
+.service-signals,
+.service-solution {
+  display: grid;
+  gap: 8px;
+}
+
+.service-ai-reason {
+  padding: 15px;
+  border-radius: 15px;
+  background: #f4f9ff;
+}
+
+.service-ai-reason strong,
+.service-signals strong,
+.service-solution strong {
+  color: #344054;
+  font-size: 14px;
+}
+
+.service-ai-reason p,
+.service-signals span,
+.service-solution span {
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.service-solution span {
+  color: #287a45;
+}
+
+.service-center-cta {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.1fr) minmax(240px, 1fr) minmax(190px, .75fr);
+  gap: 30px;
+  align-items: center;
+  margin-top: 22px;
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 24px;
+  background: radial-gradient(circle at 15% 10%, #1d3557 0, #101828 42%, #090f1d 100%);
+  color: #fff;
+  box-shadow: 0 24px 54px rgba(16, 24, 40, .22);
+}
+
+.growth-cta-value h3 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 3vw, 31px);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+
+.growth-cta-value > p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+
+.growth-cta-value > div {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.growth-cta-value span {
+  color: #dbeafe;
+  font-size: 14px;
+}
+
+.growth-cta-process {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding-inline: 28px;
+  border-inline: 1px solid rgba(255, 255, 255, .1);
+}
+
+.growth-cta-process article {
+  display: grid;
+  gap: 4px;
+}
+
+.growth-cta-process strong {
+  font-size: 15px;
+}
+
+.growth-cta-process p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.growth-cta-process i {
+  color: #60a5fa;
+  font-style: normal;
+}
+
+.growth-cta-action {
+  display: grid;
+  gap: 13px;
+  justify-items: stretch;
+  text-align: center;
+}
+
+.growth-cta-action .btn {
+  width: 100%;
+  padding-inline: 18px;
+  background: #1683f8;
+  box-shadow: 0 14px 30px rgba(0, 113, 227, .28);
+}
+
+.growth-cta-action p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .growth-stage-line {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .growth-state-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-capability-row {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .priority-capability-row > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .growth-phase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-cta-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .service-recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-center-cta {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-cta-process {
+    padding: 22px 0;
+    border-block: 1px solid rgba(255, 255, 255, .1);
+    border-inline: 0;
+  }
+
+}

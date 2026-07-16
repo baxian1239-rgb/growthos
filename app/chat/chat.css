@@ -1,0 +1,23 @@
+.chat-shell { max-width: 860px; margin: 0 auto; }
+.chat-card { padding: 20px; }
+.chat-messages { display: grid; gap: 14px; min-height: 360px; max-height: 58vh; overflow: auto; padding: 8px; }
+.chat-message { max-width: 80%; padding: 14px 16px; border-radius: 16px; line-height: 1.7; white-space: pre-wrap; }
+.chat-message.assistant { background: #f1f5f9; justify-self: start; }
+.chat-message.user { background: #0071e3; color: white; justify-self: end; }
+.chat-report { display: grid; gap: 14px; }
+.chat-report section { border-top: 1px solid rgba(148, 163, 184, .35); padding-top: 10px; }
+.chat-report section:first-child { border-top: 0; padding-top: 0; }
+.chat-report h3 { margin: 0 0 6px; font-size: 16px; }
+.chat-report p { margin: 6px 0; line-height: 1.65; }
+.ninety-day-plan h2 { margin: 0 0 18px; font-size: clamp(24px, 4vw, 34px); letter-spacing: -.03em; }
+.plan-grid { display: grid; gap: 14px; }
+.plan-card { background: #fff; border: 1px solid rgba(148, 163, 184, .28); border-radius: 20px; padding: 20px; box-shadow: 0 12px 32px rgba(15, 23, 42, .06); }
+.phase-label { display: inline-flex; margin-bottom: 14px; padding: 6px 10px; border-radius: 999px; background: #eef6ff; color: #0066cc; font-size: 13px; font-weight: 700; }
+.plan-card h3 { font-size: 20px; letter-spacing: -.02em; }
+.plan-goal { color: #475569; }
+.plan-actions { margin-top: 14px; }
+.plan-actions > strong { display: block; margin-bottom: 8px; }
+.plan-actions p { color: #1d1d1f; }
+.chat-form { display: flex; gap: 12px; border-top: 1px solid var(--border); padding-top: 18px; margin-top: 18px; }
+.chat-form input { flex: 1; min-width: 0; padding: 15px 16px; border: 1px solid var(--border); border-radius: 14px; outline: none; }
+@media (max-width: 600px) { .chat-form { flex-direction: column; } .chat-message { max-width: 92%; } .plan-card { padding: 16px; border-radius: 16px; } }
