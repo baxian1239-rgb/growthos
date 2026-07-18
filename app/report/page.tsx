@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { normalizeBottlenecks } from "@/lib/ai/bottlenecks";
 import { generateMockGrowthReport, type GeneratedGrowthReport } from "@/lib/ai/report-generator";
 import { normalizeNinetyDayPath } from "@/lib/ai/ninety-day-path";
 import { recommendGrowthServices } from "@/lib/ai/service-recommendations";
@@ -230,10 +231,7 @@ export default function Report() {
       rank: index + 1,
       reason: toTextList(item.bottlenecks).join("；") || item.interpretation || `${item.name}当前得分相对靠后，优先提升可减少其对整体增长链路的限制。`,
     }));
-  const topBottlenecks = toList(reportData.topBottlenecks ?? reportData.bottlenecks, (value, key) => {
-    const item = value && typeof value === "object" ? value as Record<string, unknown> : { problem: value };
-    return { name: displayValue(item.name ?? key), problem: displayValue(item.problem ?? item.description ?? item.value ?? ""), impact: displayValue(item.impact ?? ""), suggestion: displayValue(item.suggestion ?? item.advice ?? "") };
-  });
+  const topBottlenecks = normalizeBottlenecks(reportData.topBottlenecks ?? reportData.bottlenecks, bottlenecks);
   const parseAdvice = (value: unknown, key = ""): AdviceItem | null => {
     if (value === null || value === undefined) return null;
     if (typeof value !== "object" || Array.isArray(value)) {
