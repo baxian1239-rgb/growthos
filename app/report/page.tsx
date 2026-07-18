@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { generateMockGrowthReport, type GeneratedGrowthReport } from "@/lib/ai/report-generator";
+import { normalizeNinetyDayPath } from "@/lib/ai/ninety-day-path";
 import { recommendGrowthServices } from "@/lib/ai/service-recommendations";
 import { calculate } from "@/lib/scoring";
 import { supabase } from "@/lib/supabase";
@@ -264,10 +265,10 @@ export default function Report() {
     return parsed ? [parsed] : [];
   };
   const advice = normalizeAdvice(reportData.aiGrowthAdvice ?? reportData.aiAdvice ?? reportData.recommendation ?? reportData.actionPlan);
-  const actionPlan = reportData.ninetyDayPath && typeof reportData.ninetyDayPath === "object" ? reportData.ninetyDayPath as Record<string, unknown> : {};
-  const days0To30 = toList(actionPlan.days0To30 ?? actionPlan["0-30"] ?? reportData.actionPlan, (value) => displayValue(value));
-  const days30To60 = toList(actionPlan.days30To60 ?? actionPlan["30-60"], (value) => displayValue(value));
-  const days60To90 = toList(actionPlan.days60To90 ?? actionPlan["60-90"], (value) => displayValue(value));
+  const normalizedPath = normalizeNinetyDayPath(reportData.ninetyDayPath ?? reportData.ninetyDayPlan ?? reportData.actionPlan);
+  const days0To30 = normalizedPath.days0To30.map(displayValue);
+  const days30To60 = normalizedPath.days30To60.map(displayValue);
+  const days60To90 = normalizedPath.days60To90.map(displayValue);
   const growthPhases = [
     { label: "第一阶段｜0-30天", title: "基础修复期", actions: days0To30 },
     { label: "第二阶段｜30-60天", title: "能力提升期", actions: days30To60 },

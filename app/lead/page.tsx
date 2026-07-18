@@ -51,10 +51,11 @@ function readJson<T>(key: string): T | null {
 }
 
 async function ensureAIReport(signal: AbortSignal) {
-  if (readJson<GeneratedGrowthReport>("growthos-ai-report")) return;
+  const existingReport = readJson<GeneratedGrowthReport>("growthos-ai-report");
+  if (existingReport) return existingReport;
 
   const result = readJson<ReportSnapshot>("growthos-result");
-  if (!result?.engines || typeof result.index !== "number") return;
+  if (!result?.engines || typeof result.index !== "number") return null;
 
   const response = await fetch("/api/ai/report", {
     method: "POST",
@@ -77,7 +78,12 @@ async function ensureAIReport(signal: AbortSignal) {
 
   if (!response.ok) throw new Error("AI report generation failed");
   const data = await response.json() as { report?: GeneratedGrowthReport };
-  if (data.report) localStorage.setItem("growthos-ai-report", JSON.stringify(data.report));
+  if (data.report) {
+    localStorage.setItem("growthos-ai-report", JSON.stringify(data.report));
+    sessionStorage.setItem("growthos-ai-report", JSON.stringify(data.report));
+    return data.report;
+  }
+  return null;
 }
 
 export default function LeadPage() {
@@ -164,7 +170,8 @@ export default function LeadPage() {
     event.preventDefault();
     setError("");
     setSaving(true);
-    const aiReport = readJson<GeneratedGrowthReport>("growthos-ai-report");
+    const controller = new AbortController();
+    const aiReport = await ensureAIReport(controller.signal).catch(() => readJson<GeneratedGrowthReport>("growthos-ai-report"));
     const aiReportSnapshot = aiReport ? {
       currentGrowthState: aiReport.currentGrowthState,
       topBottlenecks: aiReport.topBottlenecks,
