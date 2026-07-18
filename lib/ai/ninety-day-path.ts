@@ -53,8 +53,8 @@ export function normalizeNinetyDayPath(value: unknown, fallback: NinetyDayGrowth
   const path = Object.keys(nested).length ? nested : source;
 
   return {
-    days0To30: phaseActions(path, ["days0To30", "days0to30", "days1_30", "days1To30", "0-30", "1-30"], fallback.days0To30),
-    days30To60: phaseActions(path, ["days30To60", "days31To60", "days31_60", "30-60", "31-60"], fallback.days30To60),
-    days60To90: phaseActions(path, ["days60To90", "days61To90", "days61_90", "60-90", "61-90"], fallback.days60To90),
+    days0To30: phaseActions(path, ["days0To30", "days0to30", "days1_30", "days1To30", "phase1", "phase_1", "0-30", "1-30"], fallback.days0To30),
+    days30To60: phaseActions(path, ["days30To60", "days31To60", "days31_60", "phase2", "phase_2", "30-60", "31-60"], fallback.days30To60),
+    days60To90: phaseActions(path, ["days60To90", "days61To90", "days61_90", "phase3", "phase_3", "60-90", "61-90"], fallback.days60To90),
   };
 }

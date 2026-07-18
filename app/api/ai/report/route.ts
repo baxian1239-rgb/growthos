@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateMockGrowthReport, type AIReportInput } from "@/lib/ai/report-generator";
+import { normalizeNinetyDayPath } from "@/lib/ai/ninety-day-path";
 import { getAIReportProvider } from "@/lib/ai/providers";
 
 export async function POST(request: NextRequest) {
@@ -23,6 +24,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const report = await provider.generateReport(input);
+    report.ninetyDayPath = normalizeNinetyDayPath(report.ninetyDayPath);
     const durationMs = Date.now() - startedAt;
 
     console.info("[ai-report] generated", {
@@ -44,6 +46,7 @@ export async function POST(request: NextRequest) {
     const message = error instanceof Error ? error.message : "Failed to generate AI report";
     const durationMs = Date.now() - startedAt;
     const report = generateMockGrowthReport(input);
+    report.ninetyDayPath = normalizeNinetyDayPath(report.ninetyDayPath);
 
     console.error("[ai-report] fallback", {
       provider: provider.name,
