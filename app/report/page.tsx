@@ -125,11 +125,13 @@ export default function Report() {
         }
       }
 
-      for (const storage of storages) {
-        const cachedAIReport = readStorage<GeneratedGrowthReport>(storage, "growthos-ai-report");
-        if (cachedAIReport) {
-          restoredAIReport = cachedAIReport;
-          break;
+      if (!restoredAIReport) {
+        for (const storage of storages) {
+          const cachedAIReport = readStorage<GeneratedGrowthReport>(storage, "growthos-ai-report");
+          if (cachedAIReport) {
+            restoredAIReport = cachedAIReport;
+            break;
+          }
         }
       }
 
@@ -385,6 +387,24 @@ export default function Report() {
               <span>100</span>
             </div>
             <p className="muted">{displayValue(aiReport.growthIndexAnalysis?.summary)}</p>
+          </div>
+        </section>
+
+        <section className="card report-section">
+          <span className="eyebrow">90天行动计划</span>
+          <h2>您的90天增长行动计划</h2>
+          <div className="growth-phase-grid">
+            {growthPhases.map((phase) => (
+              <article className="growth-phase-card" key={`action-${phase.label}`}>
+                <span className="growth-phase-label">{phase.label}</span>
+                <h3>{phase.title}</h3>
+                <div className="growth-phase-actions">
+                  {phase.actions.map((item, itemIndex) => (
+                    <p key={`action-${item}-${itemIndex}`}>✓ {item}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

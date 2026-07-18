@@ -70,7 +70,7 @@
 }
 
 .council-card {
-  min-height: 230px;
+  min-height: 190px;
   padding: 24px;
   border: 1px solid #e8edf4;
   border-radius: 8px;
@@ -92,68 +92,6 @@
 .council-card p {
   color: #475467;
   line-height: 1.7;
-}
-
-.council-card small {
-  display: block;
-  margin-top: 18px;
-  color: #667085;
-}
-
-.skill-map {
-  display: grid;
-  gap: 6px;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid #e8edf4;
-}
-
-.skill-map strong {
-  font-size: 13px;
-  color: #111827;
-}
-
-.skill-map small {
-  margin-top: 0;
-}
-
-.pipeline-grid,
-.integration-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.pipeline-card,
-.integration-card {
-  padding: 20px;
-  border: 1px solid #e8edf4;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.pipeline-card span {
-  color: #0071e3;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.pipeline-card h3,
-.integration-card h3 {
-  margin: 10px 0;
-  font-size: 18px;
-}
-
-.pipeline-card p,
-.integration-card p {
-  color: #475467;
-  line-height: 1.65;
-}
-
-.integration-card small {
-  display: block;
-  margin-top: 8px;
-  color: #667085;
 }
 
 .council-band {
@@ -196,20 +134,10 @@
   .council-grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .pipeline-grid,
-  .integration-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 560px) {
   .council-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pipeline-grid,
-  .integration-grid {
     grid-template-columns: 1fr;
   }
 

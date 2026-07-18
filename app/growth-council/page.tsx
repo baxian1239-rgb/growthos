@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import { growthCouncilAgents } from "@/lib/ai/growth-council";
-import { agentSkillMappings, externalSkillIntegrations, gstackOperatingPipeline } from "@/lib/ai/skill-integrations";
 import "./growth-council.css";
 
 const operatingSteps = [
@@ -22,7 +21,7 @@ export default function GrowthCouncilPage() {
               <span className="eyebrow">GrowthOS 2.0</span>
               <h1>AI增长委员会</h1>
               <p>
-                把 dbskill 的商业诊断能力、gstack 的执行协作思想和 GrowthOS 企业增长方法论融合为一个可持续运转的企业增长顾问系统。
+                为企业老板组建一支7位AI增长顾问团队，从战略、获客、成交、产品、运营、财务和执行七个角度，持续分析企业增长瓶颈并推进落地。
               </p>
               <div className="council-actions">
                 <a className="btn" href="/assessment/company">启动企业诊断</a>
@@ -55,37 +54,6 @@ export default function GrowthCouncilPage() {
                   <span>{agent.role}</span>
                   <h3>{agent.name}</h3>
                   <p>{agent.mission}</p>
-                  <small>能力来源：{agent.source}</small>
-                  <div className="skill-map">
-                    <strong>Skill接入</strong>
-                    <small>
-                      dbskill：{agentSkillMappings.find((item) => item.agentId === agent.id)?.dbskillEntrypoints.join(" / ")}
-                    </small>
-                    <small>
-                      gstack：{agentSkillMappings.find((item) => item.agentId === agent.id)?.gstackEntrypoints.join(" / ")}
-                    </small>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section council-band">
-          <div className="container">
-            <div className="section-heading">
-              <span className="eyebrow">gstack执行链路</span>
-              <h2>把建议变成可复盘的交付流程</h2>
-              <p className="muted">
-                GrowthOS 2.0 不只生成报告，还把增长工作按 Think、Plan、Build、Review、Test、Ship、Reflect 的节奏推进。
-              </p>
-            </div>
-            <div className="pipeline-grid">
-              {gstackOperatingPipeline.map((item) => (
-                <article className="pipeline-card" key={item.phase}>
-                  <span>{item.phase}</span>
-                  <h3>{item.skill}</h3>
-                  <p>{item.output}</p>
                 </article>
               ))}
             </div>
@@ -103,26 +71,6 @@ export default function GrowthCouncilPage() {
               <p><strong>决策：</strong>7位AI顾问分别输出瓶颈判断和优先级。</p>
               <p><strong>执行：</strong>自动生成90天增长作战计划。</p>
               <p><strong>复盘：</strong>后续沉淀任务、结果和企业长期记忆。</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container">
-            <div className="section-heading">
-              <span className="eyebrow">外部Skill接入状态</span>
-              <h2>明确能力来源和使用边界</h2>
-            </div>
-            <div className="integration-grid">
-              {externalSkillIntegrations.map((item) => (
-                <article className="integration-card" key={item.project}>
-                  <h3>{item.project}</h3>
-                  <p>{item.repository}</p>
-                  <small>License：{item.license}</small>
-                  <small>接入模式：{item.integrationMode}</small>
-                  <small>商业使用：{item.commercialUse}</small>
-                </article>
-              ))}
             </div>
           </div>
         </section>

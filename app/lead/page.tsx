@@ -94,6 +94,7 @@ export default function LeadPage() {
   const [reportReady, setReportReady] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [submittedLeadId, setSubmittedLeadId] = useState("");
 
   useEffect(() => {
     const companyInfo = readJson<Partial<LeadInfo>>("growthos-company-info");
@@ -218,6 +219,7 @@ export default function LeadPage() {
       const leadId = String(insertedLead.id);
       localStorage.setItem("lead_id", leadId);
       sessionStorage.setItem("lead_id", leadId);
+      setSubmittedLeadId(leadId);
     }
 
     setSubmitted(true);
@@ -246,7 +248,7 @@ export default function LeadPage() {
                   <span>✓ AI增长建议</span>
                 </div>
               </div>
-              <a className="btn" href="/report">
+              <a className="btn" href={submittedLeadId ? `/report?lead_id=${submittedLeadId}` : "/report"}>
                 查看我的专属报告
               </a>
             </>
